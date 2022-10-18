@@ -26,14 +26,7 @@ const Cursor = {
 
     // Anchor sticking
     document.querySelectorAll(".capture").forEach((a) => {
-      a.addEventListener("mouseover", function (e) {
-        self.cursorAnchor = true;
-        self.toggleCursorAnchor(e.target.getBoundingClientRect(), e.target.id);
-      });
-      a.addEventListener("mouseout", function () {
-        self.cursorAnchor = false;
-        self.toggleCursorAnchor();
-      });
+      self.capture(a);
     });
 
     // Click events
@@ -73,6 +66,18 @@ const Cursor = {
       self.toggleCursorVisibility();
       self.$dot.style.opacity = 0;
       self.$outline.style.opacity = 0;
+    });
+  },
+
+  capture: function (a) {
+    var self = this;
+    a.addEventListener("mouseover", function (e) {
+      self.cursorAnchor = true;
+      self.toggleCursorAnchor(e.target.getBoundingClientRect(), e.target.id);
+    });
+    a.addEventListener("mouseout", function () {
+      self.cursorAnchor = false;
+      self.toggleCursorAnchor();
     });
   },
 
@@ -129,7 +134,7 @@ const Cursor = {
       self.$outline.style.top = `${e.top + e.height / 2}px`;
       self.$outline.style.left = `${e.x + e.width / 2}px`;
       self.$outline.style.backgroundColor = "transparent";
-      self.$outline.style.border = "2px solid #000";
+      self.$outline.style.border = ".05rem solid #000";
       self.$outline.style.width = `${e.width + 3}px`;
       self.$outline.style.height = `${e.height + 1}px`;
       self.$outline.style.borderRadius = "3px";
@@ -149,6 +154,7 @@ const Cursor = {
 
 export const Transitions = {
   pageState: "",
+  $loader: document.querySelector(".loading-screen"),
   $wrapper: document.querySelector(".wrapper"),
   $nav: document.querySelector("nav"),
   $navLinks: document.querySelectorAll(".nav-link"),
@@ -200,7 +206,7 @@ export const Transitions = {
   ],
 
   init: function () {
-    window.onload = () => {
+    window.onload = async () => {
       const path = window.location.pathname.substring(
         1,
         window.location.pathname.length
@@ -212,9 +218,13 @@ export const Transitions = {
         this.pageState = "home";
         this.$nav.className = "home";
       }
-
       this.$colorSwap.textContent =
         this.synonyms[Math.floor(Math.random() * this.synonyms.length)];
+      await this.sleep(2000);
+      this.$loader.style.opacity = 0;
+      this.$loader.style.pointerEvents = 0;
+      await this.sleep(500);
+      this.$loader.style.display = "none";
     };
 
     this.setupEventListeners();
@@ -222,6 +232,11 @@ export const Transitions = {
 
   setupEventListeners: function () {
     var self = this;
+
+    window.onpopstate = (e) => {
+      const page = e.target.window.location.pathname.replace("/", "");
+      this.handleTransition(page);
+    };
 
     document
       .querySelector("html")
@@ -264,6 +279,8 @@ export const Transitions = {
         let $a = document.createElement("a");
         $a.href = "mailto:jack@jackkgeorgee.xyz";
         $a.textContent = "jack@jackkgeorgee.xyz";
+        $a.className = "capture";
+        Cursor.capture($a);
         await self.sleep(300);
         const $h2 = self.$contact.firstElementChild;
         $h2.removeChild($h2.firstElementChild);
@@ -298,7 +315,7 @@ export const Transitions = {
   },
 
   handleTransition: function (dir) {
-    if (dir && this.pageState !== dir) {
+    if (dir && this.pageState !== dir && this.directions.arr.includes(dir)) {
       this.$wrapper.style.top = this.directions[dir].trans[0];
       this.$nav.style.top = this.directions[dir].trans[1];
       this.$colorSwap.style.bottom = this.directions[dir].trans[1];

@@ -85,21 +85,6 @@ body {
   // opacity: 0.5;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  5% {
-    transform: scale(0.9);
-  }
-  10% {
-    transform: scale(1.1);
-  }
-  12.5% {
-    transform: scale((1));
-  }
-}
-
 nav {
   top: 10%;
   display: flex;
@@ -312,17 +297,6 @@ nav {
   }
 }
 
-@keyframes bubble {
-  0% {
-    bottom: -15vh;
-    left: 15vw;
-  }
-  100% {
-    bottom: 100vh;
-    left: -15vw;
-  }
-}
-
 .cursor-dot,
 .cursor-dot-outline {
   pointer-events: none;
@@ -348,7 +322,6 @@ nav {
   background-color: white;
   mix-blend-mode: difference;
   border: 1px solid transparent;
-  // transform-origin: 50% 50%;
 }
 
 .cursor-dot-outline {
@@ -357,7 +330,7 @@ nav {
   height: $size;
   background-color: rgba(0, 0, 0, 0.5);
   background-color: #ffffff88;
-  border: 1px solid transparent;
+  border: 0.05rem solid transparent;
 }
 
 .test-bg {
@@ -367,3 +340,69 @@ nav {
   background: linear-gradient(-45deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 346 346' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.72' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
+
+.loading-screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  z-index: 10000;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+  cursor: none;
+
+  p {
+    @include fs($size: 1rem);
+    position: relative;
+    font-weight: 100;
+
+    &::before,
+    &::after {
+      content: " ";
+      background-color: black;
+      height: 0.05rem;
+      width: 100%;
+      position: absolute;
+    }
+
+    &::before {
+      top: -10%;
+      animation: loader 2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+    }
+    &::after {
+      bottom: -10%;
+      animation: loader 2s cubic-bezier(0.215, 0.61, 0.355, 1) reverse forwards;
+    }
+  }
+}
+
+@keyframes loader {
+  0% {
+    right: 0;
+    left: auto;
+    width: 0%;
+  }
+  40% {
+    right: 0;
+    left: auto;
+    width: 100%;
+  }
+  60% {
+    right: auto;
+    left: 0;
+    width: 100%;
+  }
+  100% {
+    right: auto;
+    left: 0;
+    width: 0%;
+  }
+}
+
+// nav,
+// .colorSwap,
+// .wrapper {
+//   display: none;
+// }
