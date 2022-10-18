@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jack George</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="icon" sizes="16x16 32x32 64x64" href="/assets/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="196x196"
+      href="/assets/favicon-192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="160x160"
+      href="/assets/favicon-160.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/assets/favicon-96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="/assets/favicon-64.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon-16.png"
+    />
+    <link rel="apple-touch-icon" href="/assets/favicon-57.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/assets/favicon-114.png"
+    />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon-72.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/assets/favicon-144.png"
+    />
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon-60.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/assets/favicon-120.png"
+    />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon-76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/assets/favicon-152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/favicon-180.png"
+    />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/assets/favicon-144.png" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;800&display=swap");
+    </style>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&display=swap");
+    </style>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap");
+    </style>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Jost:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
+    </style>
+    <canvas id="canvas"></canvas>
+    <nav>
+      <a href="/" class="nav-link capture" id="home">Home</a
+      ><a class="nav-link capture" href="/projects" id="projects">Projects</a
+      ><a class="nav-link capture" href="/contact" id="contact">Contact</a>
+      <!-- <div class="swatch"></div> -->
+    </nav>
+    <button class="capture colorSwap"></button>
+    <div class="wrapper">
+      <div class="grain"></div>
+      <div class="piece home">
+        <h1 class="title">JACK<br />GEORGE</h1>
+        <h2 class="description">I am a creative engineer from Los Angeles.</h2>
+      </div>
+      <div class="piece projects">
+        <div class="genre">
+          <h4>(ongoing work)</h4>
+          <div class="project">
+            <a href="/contact" class="capture"><h1>Rootbound</h1></a>
+            <h2><span>::</span>2020</h2>
+          </div>
+          <div class="project">
+            <a href="/contact" class="capture"><h1>9VT\5</h1></a>
+            <h2><span>::</span>2020</h2>
+          </div>
+        </div>
+        <div class="genre commissions">
+          <h4>(commissions)</h4>
+          <div class="project">
+            <a href="/contact" class="capture"
+              ><h1>Maria Ines Life Interiors</h1></a
+            >
+            <h2><span>::</span>2022</h2>
+          </div>
+          <div class="project">
+            <a href="/contact" class="capture"><h1>Tess Buckley</h1></a>
+            <h2><span>::</span>2022</h2>
+          </div>
+          <div class="project">
+            <a href="/contact" class="capture"><h1>Becket Cerny</h1></a>
+            <h2><span>::</span>2021</h2>
+          </div>
+          <div class="project">
+            <a href="/contact" class="capture"><h1>Eva Tellier</h1></a>
+            <h2><span>::</span>2021</h2>
+          </div>
+          <div class="project">
+            <a href="/contact" class="capture"> <h1>Court Designs Inc.</h1></a>
+            <h2><span>::</span>2020</h2>
+          </div>
+          <div class="project">
+            <a href="/contact" class="capture"> <h1>Alex Scher</h1></a>
+            <h2><span>::</span>2020</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="piece contact">
+        <div class="reveal">
+          <h2>
+            <span class="capture" role="button">click here</span> to reveal
+            contact information.
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="cursor-dot-outline"></div>
+    <div class="cursor-dot"></div>
+
+    <script type="module" src="./js/three.js"></script>
+    <script type="module" src="./js/transitions.js"></script>
+  </body>
+</html>
