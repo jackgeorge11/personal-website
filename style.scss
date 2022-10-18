@@ -211,12 +211,12 @@ nav {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        margin: 0 5vw 0 0;
+        margin: 0 5vw 1vw 0;
 
         h4 {
           text-decoration: underline;
           margin-bottom: 0.5vw;
-          @include fs($size: 0.5vw, $min: 0.5rem);
+          @include fs($size: 0.5vw, $min: 0.35rem);
         }
 
         .project {
@@ -235,7 +235,7 @@ nav {
             width: fit-content;
           }
           h1 {
-            @include fs($size: 2.5vw, $min: 2rem, $lh: 0.9);
+            @include fs($size: 2.5vw, $min: 1.5rem, $lh: 0.9);
             word-wrap: break-word;
             font-weight: 700;
             text-align: end;
@@ -244,9 +244,9 @@ nav {
           }
           h2 {
             word-wrap: break-word;
-            $size: 0.4vw;
+            $size: 0.3vw;
             text-align: end;
-            @include fs($size: $size, $min: 0.65rem, $lh: 0);
+            @include fs($size: $size, $min: 0.5rem, $lh: 0);
             margin-right: $size * 0.2;
 
             span {
@@ -256,21 +256,26 @@ nav {
           }
         }
 
-        &.commissions {
-          margin: 4vw 0 0 0;
+        &.commissions,
+        &.developer {
+          margin: 1.5vw 0 0 0;
 
           .project {
             margin-bottom: 0.15vw;
 
             h1 {
-              @include fs($size: 1vw, $min: 1rem, $lh: 1);
+              @include fs($size: 0.875vw, $min: 0.875rem, $lh: 1);
             }
             h2 {
-              $size: 0.25vw;
+              $size: 0.15vw;
               @include fs($size: $size, $min: 0.5rem, $lh: 1);
               margin-right: $size * 0.2;
             }
           }
+        }
+
+        &.developer {
+          margin: 2.5vw 0 0 0;
         }
       }
     }
