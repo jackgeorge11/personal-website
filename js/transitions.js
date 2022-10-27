@@ -277,8 +277,8 @@ export const Transitions = {
         self.transitionDisabled = true;
         self.$contact.style.opacity = 0;
         let $a = document.createElement("a");
-        $a.href = "mailto:jack@jackkgeorgee.xyz";
-        $a.textContent = "jack@jackkgeorgee.xyz";
+        $a.href = "mailto:jack@jackgeorge.xyz";
+        $a.textContent = "jack@jackgeorge.xyz";
         $a.className = "capture";
         Cursor.capture($a);
         await self.sleep(300);
