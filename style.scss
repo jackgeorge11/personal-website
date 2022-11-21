@@ -288,24 +288,23 @@ nav {
         }
       }
     }
-  }
+    &.contact {
+      .reveal {
+        h2 {
+          @include fs($size: 1.5vw, $min: 0.8rem);
+          transition: opacity 0.25s cubic-bezier(0.47, 0, 0.745, 0.715);
+          @include thin;
+          span {
+            @include thick;
+            cursor: none;
+          }
+        }
 
-  &.contact {
-    .reveal {
-      h2 {
-        @include fs($size: 1.5vw, $min: 0.8rem);
-        transition: opacity 0.25s cubic-bezier(0.47, 0, 0.745, 0.715);
-        @include thin;
-        span {
+        a {
+          color: black;
           @include thick;
           cursor: none;
         }
-      }
-
-      a {
-        color: black;
-        @include thick;
-        cursor: none;
       }
     }
   }
